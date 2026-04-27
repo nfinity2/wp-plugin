@@ -12,11 +12,11 @@ Või SSH kaudu:
 cd /var/www/html/wp-content/plugins/
 unzip teateriba.zip
 ```
-Siis WP Admin → Plugins → aktiveeri "Aalase teateriba"
+Siis WP Admin → Plugins → aktiveeri "aallas teateriba"
 
 ## Kasutus
 
-1. WP Admin → **Aalase teateriba**
+1. WP Admin → **aallas teateriba**
 2. Sisesta tekst, vali taustavärv ja teksti värv
 3. Salvesta
 4. Riba ilmub kõigil lehtedel ülaosas
@@ -28,8 +28,8 @@ Siis WP Admin → Plugins → aktiveeri "Aalase teateriba"
 - Teksti värvi valik
 - Ainult avalehel kuvamise valik
 - X nupp sulgemiseks
-- Peida/näita nupp (olek säilib brauseris)
-
+- Peida/näita nupp all paremal
+  
 ## Nõuded
 
 - WordPress 5.0+
