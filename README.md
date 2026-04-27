@@ -11,7 +11,7 @@
 * **Sulgemisnupp:** Lisatud on JavaScript-põhine "X" nupp teate peitmiseks.
 
 ## Paigaldamine
-1. Laadi fail `armin-teateriba.php` alla.
+1. Laadi fail `teateriba.php` alla.
 2. Liiguta see oma WordPressi kausta: `wp-content/plugins/`.
 3. Aktiveeri plugin WordPressi administreerimispaneelist.
 
