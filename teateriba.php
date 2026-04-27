@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Aalase teateriba
+ * Plugin Name: aallas teateriba
  * Description: Kuvab lehe ülaosas teateriba
  * Version: 1.5
  * Author: Aallas
@@ -9,7 +9,7 @@
 if (!defined('ABSPATH')) exit;
 
 add_action('admin_menu', function() {
-    add_menu_page('Aalase teateriba', 'Aalase teateriba', 'manage_options', 'teateriba', 'teateriba_admin_page');
+    add_menu_page('teateriba', 'teateriba', 'manage_options', 'teateriba', 'teateriba_admin_page');
 });
 
 add_action('admin_init', function() {
@@ -21,7 +21,7 @@ add_action('admin_init', function() {
 
 function teateriba_admin_page() { ?>
     <div class="wrap">
-        <h1>Aalase teateriba</h1>
+        <h1>teateriba</h1>
         <form method="post" action="options.php">
             <?php settings_fields('teateriba_group'); ?>
             <table class="form-table">
