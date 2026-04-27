@@ -1,22 +1,36 @@
-# WordPressi Plugin
+# Aalase teateriba
 
-## Kirjeldus
-Ülesanne: teateriba WP plugin
+WordPress plugin mis kuvab lehe ülaosas teateriba.
 
-## Funktsionaalsus
-* **Admin-menüü:** WordPressi hallatavasse paneeli lisandub menüüpunkt "Armini Teateriba".
-* **Kohandatav tekst:** Administraator saab sisestada teate teksti.
-* **Värvivalik:** Võimalus valida nii teateriba taustavärvi kui ka teksti värvi (lähtutud Itteni värviringi kontrastireeglitest).
-* **Dünaamiline kuvamine:** Teadet kuvatakse automaatselt kõigil lehtedel kohe pärast `<body>` märgendit.
-* **Sulgemisnupp:** Lisatud on JavaScript-põhine "X" nupp teate peitmiseks.
+## Paigaldus
 
-## Paigaldamine
-1. Laadi fail `teateriba.php` alla.
-2. Liiguta see oma WordPressi kausta: `wp-content/plugins/`.
-3. Aktiveeri plugin WordPressi administreerimispaneelist.
+1. Laadi alla `teateriba.zip`
+2. WP Admin → Plugins → Add New → Upload Plugin → vali ZIP → Install Now → Activate
 
-## Tehniline lahendus
-Plugin kasutab WordPressi standardseid hooke:
-* `admin_menu` – seadete lehe loomiseks.
-* `wp_body_open` – teate kuvamiseks lehe esiosas.
-* `update_option` ja `get_option` – seadete salvestamiseks andmebaasi.
+Või SSH kaudu:
+```bash
+cd /var/www/html/wp-content/plugins/
+unzip teateriba.zip
+```
+Siis WP Admin → Plugins → aktiveeri "Aalase teateriba"
+
+## Kasutus
+
+1. WP Admin → **Aalase teateriba**
+2. Sisesta tekst, vali taustavärv ja teksti värv
+3. Salvesta
+4. Riba ilmub kõigil lehtedel ülaosas
+
+## Funktsioonid
+
+- Teksti sisestamine
+- Taustavärvi valik
+- Teksti värvi valik
+- Ainult avalehel kuvamise valik
+- X nupp sulgemiseks
+- Peida/näita nupp (olek säilib brauseris)
+
+## Nõuded
+
+- WordPress 5.0+
+- PHP 7.4+

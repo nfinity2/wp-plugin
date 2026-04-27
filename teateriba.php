@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Aalase teateriba
  * Description: Kuvab lehe ülaosas teateriba
- * Version: 1.3
+ * Version: 1.5
  * Author: Aallas
  */
 
@@ -41,8 +41,8 @@ add_action('wp_head', function() {
     if (!$text) return;
     if ($only_home && !is_front_page()) return;
 
-    $bg    = esc_attr(get_option('teateriba_bg', '#e63946'));
-    $color = esc_attr(get_option('teateriba_color', '#ffffff'));
+    $bg       = esc_attr(get_option('teateriba_bg', '#e63946'));
+    $color    = esc_attr(get_option('teateriba_color', '#ffffff'));
     $is_front = is_front_page() ? 'true' : 'false';
     $text_html = esc_html($text);
     ?>
@@ -51,7 +51,7 @@ add_action('wp_head', function() {
             background: <?php echo $bg ?> !important;
             color: <?php echo $color ?> !important;
             width: 100% !important;
-            padding: 12px 50px 12px 20px !important;
+            padding: 12px 50px !important;
             text-align: center !important;
             position: relative !important;
             box-sizing: border-box !important;
@@ -72,44 +72,53 @@ add_action('wp_head', function() {
             line-height: 1 !important;
             padding: 0 !important;
         }
-        #teateriba-toggle {
-            margin-left: 15px !important;
-            background: rgba(255,255,255,0.25) !important;
-            border: 1px solid <?php echo $color ?> !important;
+        #teateriba-floatbtn {
+            position: fixed !important;
+            bottom: 20px !important;
+            right: 20px !important;
+            background: <?php echo $bg ?> !important;
             color: <?php echo $color ?> !important;
-            padding: 3px 12px !important;
+            border: none !important;
+            padding: 10px 18px !important;
             cursor: pointer !important;
-            border-radius: 3px !important;
-            font-size: 13px !important;
+            border-radius: 4px !important;
+            font-size: 14px !important;
+            z-index: 999999 !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3) !important;
         }
     </style>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         var hidden = localStorage.getItem('teateriba_hidden') === '1';
+        var isFront = <?php echo $is_front ?>;
+
         var bar = document.createElement('div');
         bar.id = 'teateriba-bar';
-        var isFront = <?php echo $is_front ?>;
-        var toggleBtn = isFront ? '<button id="teateriba-toggle">' + (hidden ? 'Näita teadet' : 'Peida teade') + '</button>' : '';
-        bar.innerHTML = '<span><?php echo $text_html ?></span>' + toggleBtn + '<button id="teateriba-close">&times;</button>';
-        if (hidden) bar.style.display = 'none';
+        bar.innerHTML = '<span><?php echo $text_html ?></span><button id="teateriba-close">&times;</button>';
+        bar.style.display = hidden ? 'none' : 'block';
         document.body.insertBefore(bar, document.body.firstChild);
 
         document.getElementById('teateriba-close').onclick = function() {
             bar.style.display = 'none';
             localStorage.setItem('teateriba_hidden', '1');
-            if (document.getElementById('teateriba-toggle')) document.getElementById('teateriba-toggle').textContent = 'Näita teadet';
+            if (isFront) floatBtn.style.display = 'block';
         };
 
         if (isFront) {
-            document.getElementById('teateriba-toggle').onclick = function() {
+            var floatBtn = document.createElement('button');
+            floatBtn.id = 'teateriba-floatbtn';
+            floatBtn.textContent = hidden ? 'Näita teadet' : 'Peida teade';
+            document.body.appendChild(floatBtn);
+
+            floatBtn.onclick = function() {
                 if (bar.style.display === 'none') {
                     bar.style.display = 'block';
                     localStorage.setItem('teateriba_hidden', '0');
-                    this.textContent = 'Peida teade';
+                    floatBtn.textContent = 'Peida teade';
                 } else {
                     bar.style.display = 'none';
                     localStorage.setItem('teateriba_hidden', '1');
-                    this.textContent = 'Näita teadet';
+                    floatBtn.textContent = 'Näita teadet';
                 }
             };
         }
