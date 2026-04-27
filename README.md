@@ -1,7 +1,7 @@
-# WordPressi Teateriba Plugin
+# WordPressi Plugin
 
 ## Kirjeldus
-See on kooliprojekti raames loodud WordPressi pistikprogramm, mis võimaldab administraatoril kuvada veebilehe ülaservas kohandatavat teateriba.
+Ülesanne: teateriba WP plugin
 
 ## Funktsionaalsus
 * **Admin-menüü:** WordPressi hallatavasse paneeli lisandub menüüpunkt "Armini Teateriba".
