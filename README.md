@@ -1,4 +1,4 @@
-# teateriba
+# Teateriba
 
 WordPress plugin mis kuvab lehe ülaosas teateriba.
 
