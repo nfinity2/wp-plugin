@@ -7,13 +7,6 @@ WordPress plugin mis kuvab lehe ülaosas teateriba.
 1. Laadi alla `teateriba.zip`
 2. WP Admin → Plugins → Add New → Upload Plugin → vali ZIP → Install Now → Activate
 
-Või SSH kaudu:
-```bash
-cd /var/www/html/wp-content/plugins/
-unzip teateriba.zip
-```
-Siis WP Admin → Plugins → aktiveeri "aallas teateriba"
-
 ## Kasutus
 
 1. WP Admin → **aallas teateriba**
